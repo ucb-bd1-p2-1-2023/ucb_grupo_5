@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 app.use(bodyParser.json());
-
+connection.connect();
 app.use(cors({
   origin: '*'
 }));
@@ -30,12 +30,12 @@ app.post('/driver',(req, res) => {
 app.post('/car',(req, res) => {
     const body = req.body;
     const query = `INSERT INTO car(placa, firstName, lastName, email) VALUES ('${body.placa}','${body.firstName}', '${body.lastName}','${body.email}');`;
-    connection.connect();
+    
     connection.query( query, (err, rows, fields) => {
       if (err) throw err
       console.log('1 record inserted');
     })
-    connection.end();
+   
     res.send('1 record inserted');
   })
 app.listen(port, () => {
