@@ -1,9 +1,9 @@
-import express from 'express';
-import { createConnection } from 'mysql';
-import { json } from 'body-parser';
-import cors from 'cors';
+const express = require('express');
+const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
-app.use(json());
+app.use(bodyParser.json());
 
 app.use(cors({
   origin: '*'
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.post('/driver',(req, res) => {
   const body = req.body;
-  const query = `INSERT INTO user(firstName, lastName, email) VALUES ('${body.firstName}', '${body.lastName}','${body.email}','${body.telefono}');`;
+  const query = `INSERT INTO user(firstName, lastName, email, telefono) VALUES ('${body.firstName}', '${body.lastName}','${body.email}','${body.email}');`;
   connection.connect();
   connection.query( query, (err, rows, fields) => {
     if (err) throw err
@@ -32,10 +32,11 @@ app.listen(port, () => {
   console.log(`Project sample is running on: ${port}`)
 })
 
-const connection = createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
   port: '3307',
   user: 'root',
   password: 'root',
-  database: 'db1',
+  database: 'db1'
 })
+
