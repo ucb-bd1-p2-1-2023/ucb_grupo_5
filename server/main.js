@@ -17,12 +17,7 @@ app.get('/', (req, res) => {
 
 app.post('/driver',(req, res) => {
   const body = req.body;
-<<<<<<< HEAD
-  const query = `INSERT INTO user(firstName, lastName, email, telefono) VALUES ('${body.firstName}', '${body.lastName}','${body.email}','${body.email}');`;
-  connection.connect();
-=======
   const query = `INSERT INTO user(firstName, lastName, email) VALUES ('${body.firstName}', '${body.lastName}','${body.email}');`;
->>>>>>> 1d9642e03878b105e900e2e7632dfc3abbe64059
   connection.query( query, (err, rows, fields) => {
     if (err) throw err
     console.log('1 record inserted');
@@ -42,7 +37,4 @@ const connection = mysql.createConnection({
   database: 'db1'
 })
 
-<<<<<<< HEAD
-=======
 connection.connect();
->>>>>>> 1d9642e03878b105e900e2e7632dfc3abbe64059
