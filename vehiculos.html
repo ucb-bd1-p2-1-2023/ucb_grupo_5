@@ -5,48 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>In Driver-Administrators</title>
+    <title>In Driver-Vehicle</title>
 </head>
 <body>
     <div class="box">
-        <h1 class="title is-1">🚘 Administrators Form</h1>
+        <h1 class="title is-1">🚘 Vehicle Form</h1>
         <h2 class="subtitle is-3">Fill your data in this form</h2>
     </div>
     <div class="box my-6">
         <div class="field">
-            <label class="label" for="firstName">First name:</label>
+            <label class="label" for="placa">Placa:</label>
             <div class="control">
-                <input class="input" type="text" id="firstName" placeholder="Exammple: Carlos">
+                <input class="input" type="text" id="placa" placeholder="Example: 7777VEG">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="lastName">Last name:</label>
+            <label class="label" for="marca">Marca:</label>
             <div class="control">
-                <input class="input" type="text" id="lastName" placeholder="Example: Terraza">
+                <input class="input" type="text" id="marca" placeholder="Example: Toyota">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="email">Email:</label>
+            <label class="label" for="modelo">Modelo:</label>
             <div class="control">
-                <input class="input" type="text" id="email" placeholder="Example: carlos@gmail.com">
+                <input class="input" type="text" id="modelo" placeholder="Example: Corolla">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="telefono">Telefono:</label>
+            <label class="label" for="capacidad">Capacidad:</label>
             <div class="control">
-                <input class="input" type="text" id="telefono" placeholder="Example: 00000000">
+                <input class="input" type="text" id="capacidad" placeholder="Example: 4">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="rol">Rol:</label>
+            <label class="label" for="color">Color:</label>
             <div class="control">
-                <input class="input" type="text" id="rol" placeholder="Example: gestor de servicio">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label" for="area">Area:</label>
-            <div class="control">
-                <input class="input" type="text" id="area" placeholder="Example: marketing">
+                <input class="input" type="text" id="color" placeholder="Example: Blanco">
             </div>
         </div>
         <div class="block">
@@ -58,12 +52,11 @@
 
             function getValues() {
                 return {
-                    firstName: document.getElementById('firstName').value,
-                    lastName: document.getElementById('lastName').value,
-                    email: document.getElementById('email').value,
-                    telefono: document.getElementById('telefono').value,
-                    rol: document.getElementById('rol').value,
-                    area: document.getElementById('area').value,
+                    placa: document.getElementById('placa').value,
+                    marca: document.getElementById('marca').value,
+                    modelo: document.getElementById('modelo').value,
+                    capacidad: document.getElementById('capacidad').value,
+                    color: document.getElementById('color').value,
                 }
             }
             

@@ -5,24 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>In Driver-Location</title>
+    <title>In Driver-Travel</title>
 </head>
 <body>
     <div class="box">
-        <h1 class="title is-1">🚘 Location Form</h1>
+        <h1 class="title is-1">🚘 Travel Form</h1>
         <h2 class="subtitle is-3">Fill your data in this form</h2>
     </div>
     <div class="box my-6">
         <div class="field">
-            <label class="label" for="direccion">Direccion:</label>
+            <label class="label" for="IDTrayecto">ID Trayecto:</label>
             <div class="control">
-                <input class="input" type="text" id="direccion" placeholder="Exammple: Carlos">
+                <input class="input" type="text" id="IDTrayecto" placeholder="Example: 4">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="ciudad">Ciudad:</label>
+            <label class="label" for="IDConductor">ID Conductor:</label>
             <div class="control">
-                <input class="input" type="text" id="ciudad" placeholder="Example: Terraza">
+                <input class="input" type="text" id="IDConductor" placeholder="Example: 4">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="IDPasajero">ID Pasajero:</label>
+            <div class="control">
+                <input class="input" type="text" id="IDPasajero" placeholder="Example: 4">
             </div>
         </div>
         <div class="block">
@@ -34,8 +40,9 @@
 
             function getValues() {
                 return {
-                    direccion: document.getElementById('direccion').value,
-                    ciudad: document.getElementById('ciudad').value,
+                    IDTrayecto: document.getElementById('IDTrayecto').value,
+                    IDConductor: document.getElementById('IDConductor').value,
+                    IDPasajero: document.getElementById('IDPasajero').value,
                 }
             }
             
