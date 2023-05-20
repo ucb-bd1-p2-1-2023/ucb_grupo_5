@@ -11,17 +11,21 @@ app.use(cors({
 
 const port = 3000;
 
+
 app.get('/', (req, res) => {
   res.send('API is working');
 })
 
-app.post('/driver',(req, res) => {
+app.post('/user',(req, res) => {
   const body = req.body;
+  console.log(body);
   const query = `INSERT INTO user(firstname, lastname, email) VALUES ('${body.firstname}', '${body.lastname}','${body.email}');`;
-  connection.query( query, (err, rows, fields) => {
+  
+  connection.query( query, (err) => {
     if (err) throw err
     console.log('1 record inserted');
   })
+  //connection.end();
   res.send('1 record inserted');
 })
 
@@ -37,4 +41,4 @@ const connection = mysql.createConnection({
   database: 'db1'
 })
 
-connection.connect();
+connection.connect(()  => console.log('connected to  db'));
