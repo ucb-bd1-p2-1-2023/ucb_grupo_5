@@ -6,38 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>In Driver</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease-in-out;
+        }
+
+        .submit-button {
+            margin-top: 20px;
+            animation: scaleIn 0.5s ease-in-out;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3273dc;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .input-container:hover::after,
+        .input-container:focus-within::after {
+            transform: scaleX(1);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="box">
-        <h1 class="title is-1">🫥 User Form</h1>
-        <h2 class="subtitle is-3">Fill your data in this form</h2>
+    <div class="form-container">
+        <h1 class="form-title title is-1">🫥 User Form</h1>
+        <h2 class="form-title subtitle is-3">Fill in your data in this form</h2>
+
+        <div class="box my-6">
+            <div class="field">
+                <label class="label" for="firstname">First name:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="firstname" placeholder="Example: Carlos">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="lastname">Last name:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="lastname" placeholder="Example: Terraza">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="email">Email:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="email" placeholder="Example: carlos@gmail.com">
+                </div>
+            </div>
+
+            <div class="block">
+                <button class="button is-primary is-fullwidth submit-button" onclick="submitForm()">Submit</button>
+            </div>
+        </div>
     </div>
-    <div class="box my-6">
-        <div class="field">
-            <label class="label" for="firstname">First name:</label>
-            <div class="control">
-                <input class="input" type="text" id="firstname" placeholder="Exammple: Carlos">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label" for="lastname">Last name:</label>
-            <div class="control">
-                <input class="input" type="text" id="lastname" placeholder="Example: Terraza">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label" for="email">Email:</label>
-            <div class="control">
-                <input class="input" type="text" id="email" placeholder="Example: carlos@gmail.com">
-            </div>
-        </div>
-        <div class="block">
-            <button class="button is-primary is-meidum is-fullwidth mt-6" onclick="submitForm()">Submit</button>
-        </div>
-    </div>
+
     <script>
         function submitForm() {
-
             function getValues() {
                 return {
                     firstname: document.getElementById('firstname').value,
@@ -45,8 +119,8 @@
                     email: document.getElementById('email').value,
                 }
             }
-            
-            console.log(this.getValues());
+
+            console.log(getValues());
             const url = 'http://localhost:3000/user';
             const method = 'POST';
             const headers = {
@@ -54,11 +128,13 @@
                 'Content-Type': 'application/json'
             };
             const body = JSON.stringify(getValues());
-            const medatata = { method, headers, body };
-            fetch(url, medatata)
-            .then(response => response.json())
-            .then(response => console.log(JSON.stringify(response)))
+            const metadata = { method, headers, body };
+            fetch(url, metadata)
+                .then(response => response.json())
+                .then(response => console.log(JSON.stringify(response)))
         }
     </script>
 </body>
 </html>
+
+
