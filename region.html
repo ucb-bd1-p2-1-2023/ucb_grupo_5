@@ -101,6 +101,10 @@
         </div>
     </div>
     <script>
+        function resetForm() {
+            document.getElementById('ciudad').value = '';
+            document.getElementById('pais').value = '';
+        }
         function submitForm() {
 
             function getValues() {
@@ -109,8 +113,6 @@
                     pais: document.getElementById('pais').value,
                 }
             }
-            
-
             const url = 'http://localhost:3000/region';
             const method = 'POST';
             const headers = {
@@ -122,6 +124,7 @@
             fetch(url, medatata)
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
+            resetForm();
         }
     </script>
 </body>

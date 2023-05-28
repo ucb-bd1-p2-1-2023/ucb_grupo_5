@@ -107,6 +107,11 @@
         </div>
     </div>
     <script>
+        function resetForm() {
+            document.getElementById('id_trayecto').value = '';
+            document.getElementById('conductor').value = '';
+            document.getElementById('pasajero').value = '';
+        }
         function submitForm() {
 
             function getValues() {
@@ -129,6 +134,7 @@
             fetch(url, medatata)
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
+            resetForm();
         }
     </script>
 </body>

@@ -119,6 +119,13 @@
         </div>
     </div>
     <script>
+        function resetForm() {
+            document.getElementById('placa').value = '';
+            document.getElementById('marca').value = '';
+            document.getElementById('modelo').value = '';
+            document.getElementById('capacidad').value = '';
+            document.getElementById('color').value = '';
+        }
         function submitForm() {
 
             function getValues() {
@@ -143,6 +150,7 @@
             fetch(url, medatata)
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
+            resetForm();
         }
     </script>
 </body>
