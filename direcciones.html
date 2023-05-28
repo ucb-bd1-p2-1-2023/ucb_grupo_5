@@ -5,7 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>In Driver-Location</title>
+    <title>In Driver</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease-in-out;
+        }
+
+        .submit-button {
+            margin-top: 20px;
+            animation: scaleIn 0.5s ease-in-out;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3273dc;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .input-container:hover::after,
+        .input-container:focus-within::after {
+            transform: scaleX(1);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="box">
@@ -15,14 +85,14 @@
     <div class="box my-6">
         <div class="field">
             <label class="label" for="direccion">Direccion:</label>
-            <div class="control">
-                <input class="input" type="text" id="direccion" placeholder="Exammple: Carlos">
+            <div class="control input-container">
+                <input class="input" type="text" id="direccion" placeholder="Ejemplo: Av. Villarroel">
             </div>
         </div>
         <div class="field">
             <label class="label" for="ciudad">Ciudad:</label>
-            <div class="control">
-                <input class="input" type="text" id="ciudad" placeholder="Example: Terraza">
+            <div class="control input-container">
+                <input class="input" type="text" id="ciudad" placeholder="Ejemplo: Cochabamba">
             </div>
         </div>
         <div class="block">
@@ -40,7 +110,7 @@
             }
             
 
-            const url = 'http://localhost:3000/driver';
+            const url = 'http://localhost:3000/direcciones';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',

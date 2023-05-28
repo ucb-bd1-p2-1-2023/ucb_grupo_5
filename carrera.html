@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>In Driver </title>
+    <title>In Driver-Travel</title>
     <style>
         body {
             padding: 20px;
@@ -79,44 +79,26 @@
 </head>
 <body>
     <div class="box">
-        <h1 class="title is-1">🚘 Journey Form</h1>
+        <h1 class="title is-1">🚘 Cab Form</h1>
         <h2 class="subtitle is-3">Fill your data in this form</h2>
     </div>
     <div class="box my-6">
         <div class="field">
-            <label class="label" for="id_origen">ID DIRECCIÓN ORIGEN:</label>
+            <label class="label" for="id_trayecto">ID Trayecto:</label>
             <div class="control input-container">
-                <input class="input" type="text" id="id_origen" placeholder="Ejemplo: 1">
+                <input class="input" type="text" id="id_trayecto" placeholder="Ejemplo: 1">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="id_destino">ID DIRECCIÓN DESTINO:</label>
+            <label class="label" for="conductor">ID Conductor:</label>
             <div class="control input-container">
-                <input class="input" type="text" id="id_destino" placeholder="Ejemplo: 2">
+                <input class="input" type="text" id="conductor" placeholder="Ejemplo: 4">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="fecha">Fecha:</label>
+            <label class="label" for="pasajero">ID Pasajero:</label>
             <div class="control input-container">
-                <input class="input" type="text" id="fecha" placeholder="Formato: aaaa-mm-dd">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label" for="hora">Hora:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="hora" placeholder="Formato: hh:mm:ss">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label" for="tiempo_estimado">Tiempo de recorrido:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="tiempo_estimado" placeholder="Formato: hh:mm:ss">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label" for="precio">Tarifa:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="precio" placeholder="Ejemplo: 30 ">
+                <input class="input" type="text" id="pasajero" placeholder="Ejemplo: 4">
             </div>
         </div>
         <div class="block">
@@ -128,17 +110,14 @@
 
             function getValues() {
                 return {
-                    id_origen: document.getElementById('id_origen').value,
-                    id_destino: document.getElementById('id_destino').value,
-                    fecha: document.getElementById('fecha').value,
-                    hora: document.getElementById('hora').value,
-                    tiempo_estimado: document.getElementById('tiempo_estimado').value,
-                    precio: document.getElementById('precio').value,
+                    id_trayecto: document.getElementById('id_trayecto').value,
+                    conductor: document.getElementById('conductor').value,
+                    pasajero: document.getElementById('pasajero').value,
                 }
             }
             
 
-            const url = 'http://localhost:3000/trayecto';
+            const url = 'http://localhost:3000/carrera';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',

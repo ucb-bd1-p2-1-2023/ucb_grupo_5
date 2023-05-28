@@ -5,7 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>In Driver-Administrators</title>
+    <title>In Driver</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease-in-out;
+        }
+
+        .submit-button {
+            margin-top: 20px;
+            animation: scaleIn 0.5s ease-in-out;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3273dc;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .input-container:hover::after,
+        .input-container:focus-within::after {
+            transform: scaleX(1);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="box">
@@ -14,39 +84,51 @@
     </div>
     <div class="box my-6">
         <div class="field">
-            <label class="label" for="firstName">First name:</label>
-            <div class="control">
-                <input class="input" type="text" id="firstName" placeholder="Exammple: Carlos">
+            <label class="label" for="nombre">Nombre:</label>
+            <div class="control input-container">
+                <input class="input" type="text" id="nombre" placeholder="Ejemplo: Carlos">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="lastName">Last name:</label>
-            <div class="control">
-                <input class="input" type="text" id="lastName" placeholder="Example: Terraza">
+            <label class="label" for="apellido">Apellido:</label>
+            <div class="control input-container">
+                <input class="input" type="text" id="apellido" placeholder="Ejemplo: Terraza"  required>
             </div>
         </div>
         <div class="field">
-            <label class="label" for="email">Email:</label>
-            <div class="control">
-                <input class="input" type="text" id="email" placeholder="Example: carlos@gmail.com">
+            <label class="label" for="correo_electronico">Email:</label>
+            <div class="control input-container">
+                <input/email class="input" type="text" id="correo_electronico" placeholder="Ejemplo: carlos@gmail.com">
             </div>
         </div>
         <div class="field">
-            <label class="label" for="telefono">Telefono:</label>
-            <div class="control">
-                <input class="input" type="text" id="telefono" placeholder="Example: 00000000">
+            <label class="label" for="celular">Celular:</label>
+            <div class="control input-container">
+                <input class="input" type="text" id="celular" placeholder="Ejemplo: 00000000">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="ciudad">Ciudad:</label>
+            <div class="control input-container">
+                <input class="input" type="text" id="ciudad" placeholder="Ejemplo: Cochabamba">
             </div>
         </div>
         <div class="field">
             <label class="label" for="rol">Rol:</label>
-            <div class="control">
-                <input class="input" type="text" id="rol" placeholder="Example: gestor de servicio">
+            <div class="control input-container">
+                <input class="input" type="text" id="rol" placeholder="Ejemplo: Gestor de servicio">
             </div>
         </div>
         <div class="field">
             <label class="label" for="area">Area:</label>
-            <div class="control">
-                <input class="input" type="text" id="area" placeholder="Example: marketing">
+            <div class="control input-container">
+                <input class="input" type="text" id="area" placeholder="Ejemplo: marketing">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="password">Contraseña:</label>
+            <div class="control input-container">
+                <input class="input" type="text" id="password" placeholder="">
             </div>
         </div>
         <div class="block">
@@ -58,17 +140,19 @@
 
             function getValues() {
                 return {
-                    firstName: document.getElementById('firstName').value,
-                    lastName: document.getElementById('lastName').value,
-                    email: document.getElementById('email').value,
-                    telefono: document.getElementById('telefono').value,
+                    nombre: document.getElementById('nombre').value,
+                    apellido: document.getElementById('apellido').value,
+                    correo_electronico: document.getElementById('correo_electronico').value,
+                    celular: document.getElementById('celular').value,
+                    ciudad: document.getElementById('ciudad').value,
+                    password: document.getElementById('password').value,
                     rol: document.getElementById('rol').value,
                     area: document.getElementById('area').value,
                 }
             }
             
 
-            const url = 'http://localhost:3000/driver';
+            const url = 'http://localhost:3000/administradores';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',

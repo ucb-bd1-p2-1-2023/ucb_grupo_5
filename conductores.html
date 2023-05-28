@@ -79,7 +79,7 @@
 </head>
 <body>
     <div class="form-container">
-        <h1 class="form-title title is-1">🫥 User Form</h1>
+        <h1 class="form-title title is-1">🫥 Driver Form</h1>
         <h2 class="form-title subtitle is-3">Fill in your data in this form</h2>
 
         <div class="box my-6">
@@ -99,19 +99,19 @@
             </div>
             
             <div class="field">
-                <label class="label" for="correo_electronico">Email:</label>
-                <div class="control input-container">
-                    <input class="input" type="text" id="correo_electronico" placeholder="Ejemplo: carlos@gmail.com">
-                </div>
-            </div>
-            
-            <div class="field">
                 <label class="label" for="celular">Celular:</label>
                 <div class="control input-container">
                     <input class="input" type="text" id="celular" placeholder="Ejemplo: 00000000">
                 </div>
             </div>
             
+            <div class="field">
+                <label class="label" for="placa">Placa Vehiculo:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="placa" placeholder="Ejemplo: 0000AAA">
+                </div>
+            </div>
+
             <div class="field">
                 <label class="label" for="ciudad">Ciudad:</label>
                 <div class="control input-container">
@@ -138,15 +138,15 @@
                 return {
                     nombre: document.getElementById('nombre').value,
                     apellido: document.getElementById('apellido').value,
-                    correo_electronico: document.getElementById('correo_electronico').value,
                     celular: document.getElementById('celular').value,
                     ciudad: document.getElementById('ciudad').value,
+                    placa: document.getElementById('placa').value,
                     password: document.getElementById('password').value,
                 }
             }
 
             console.log(getValues());
-            const url = 'http://localhost:3000/usuario';
+            const url = 'http://localhost:3000/conductores';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',
