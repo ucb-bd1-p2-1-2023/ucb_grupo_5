@@ -26,6 +26,7 @@
         .submit-button {
             margin-top: 20px;
             animation: scaleIn 0.5s ease-in-out;
+            border-radius: 1rem;
         }
 
         .input-container {
@@ -78,31 +79,31 @@
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1 class="title is-1">🚘 Cab Form</h1>
-        <h2 class="subtitle is-3">Fill your data in this form</h2>
-    </div>
-    <div class="box my-6">
-        <div class="field">
-            <label class="label" for="id_trayecto">ID Trayecto:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="id_trayecto" placeholder="Ejemplo: 1">
+    <div class="form-container">
+        <h1 class="form-title title is-1">🚘 Carrera</h1>
+        <h2 class="form-title subtitle is-3">Llena con tus datos</h2>
+        <div class="box my-6">
+            <div class="field">
+                <label class="label" for="id_trayecto">ID Trayecto:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="id_trayecto" placeholder="Ejemplo: 1">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label" for="conductor">ID Conductor:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="conductor" placeholder="Ejemplo: 4">
+            <div class="field">
+                <label class="label" for="conductor">ID Conductor:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="conductor" placeholder="Ejemplo: 4">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label" for="pasajero">ID Pasajero:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="pasajero" placeholder="Ejemplo: 4">
+            <div class="field">
+                <label class="label" for="pasajero">ID Pasajero:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="pasajero" placeholder="Ejemplo: 4">
+                </div>
             </div>
-        </div>
-        <div class="block">
-            <button class="button is-primary is-meidum is-fullwidth mt-6" onclick="submitForm()">Submit</button>
+            <div class="block">
+                <button class="button is-primary is-fullwidth submit-button is-rounded" onclick="submitForm()">Enviar</button>
+            </div>
         </div>
     </div>
     <script>

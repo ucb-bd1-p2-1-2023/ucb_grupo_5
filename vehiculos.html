@@ -26,6 +26,7 @@
         .submit-button {
             margin-top: 20px;
             animation: scaleIn 0.5s ease-in-out;
+            border-radius: 1rem;
         }
 
         .input-container {
@@ -78,43 +79,43 @@
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1 class="title is-1">🚘 Vehicle Form</h1>
-        <h2 class="subtitle is-3">Fill your data in this form</h2>
-    </div>
-    <div class="box my-6">
-        <div class="field">
-            <label class="label" for="placa">Placa:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="placa" placeholder="Example: 7777VEG">
+    <div class="form-container">
+        <h1 class="form-title title is-1">🚘 Vehiculo</h1>
+        <h2 class="form-title subtitle is-3">Llena con tus datos</h2>
+        <div class="box my-6">
+            <div class="field">
+                <label class="label" for="placa">Placa:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="placa" placeholder="Example: 7777VEG">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label" for="marca">Marca:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="marca" placeholder="Ejemplo: Toyota">
+            <div class="field">
+                <label class="label" for="marca">Marca:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="marca" placeholder="Ejemplo: Toyota">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label" for="modelo">Modelo:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="modelo" placeholder="Ejemplo: Corolla">
+            <div class="field">
+                <label class="label" for="modelo">Modelo:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="modelo" placeholder="Ejemplo: Corolla">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label" for="capacidad">Capacidad:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="capacidad" placeholder="Ejemplo: 4">
+            <div class="field">
+                <label class="label" for="capacidad">Capacidad:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="capacidad" placeholder="Ejemplo: 4">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label" for="color">Color:</label>
-            <div class="control input-container">
-                <input class="input" type="text" id="color" placeholder="Ejemplo: Blanco">
+            <div class="field">
+                <label class="label" for="color">Color:</label>
+                <div class="control input-container">
+                    <input class="input" type="text" id="color" placeholder="Ejemplo: Blanco">
+                </div>
             </div>
-        </div>
-        <div class="block">
-            <button class="button is-primary is-meidum is-fullwidth mt-6" onclick="submitForm()">Submit</button>
+            <div class="block">
+                <button class="button is-primary is-fullwidth submit-button is-rounded" onclick="submitForm()">Enviar</button>
+            </div>
         </div>
     </div>
     <script>

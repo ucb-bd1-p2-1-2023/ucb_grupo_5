@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>In Driver </title>
+    <title>In Driver</title>
     <style>
         body {
             padding: 20px;
@@ -80,77 +80,87 @@
 </head>
 <body>
     <div class="form-container">
-        <h1 class="form-title title is-1">🚘 Trayecto</h1>
+        <h1 class="form-title title is-1">🫥 Usuario</h1>
         <h2 class="form-title subtitle is-3">Llena con tus datos</h2>
+
         <div class="box my-6">
+            
             <div class="field">
-                <label class="label" for="id_origen">ID DIRECCIÓN ORIGEN:</label>
+                <label class="label" for="nombre">Nombre:</label>
                 <div class="control input-container">
-                    <input class="input" type="text" id="id_origen" placeholder="Ejemplo: 1">
+                    <input class="input" type="text" id="nombre" placeholder="Ejemplo: Carlos">
                 </div>
             </div>
+            
             <div class="field">
-                <label class="label" for="id_destino">ID DIRECCIÓN DESTINO:</label>
+                <label class="label" for="apellido">Apellido:</label>
                 <div class="control input-container">
-                    <input class="input" type="text" id="id_destino" placeholder="Ejemplo: 2">
+                    <input class="input" type="text" id="apellido" placeholder="Ejemplo: Terraza">
                 </div>
             </div>
+            
             <div class="field">
-                <label class="label" for="fecha">Fecha:</label>
+                <label class="label" for="correo_electronico">Email:</label>
                 <div class="control input-container">
-                    <input class="input" type="text" id="fecha" placeholder="Formato: aaaa-mm-dd">
+                    <input class="input" type="text" id="correo_electronico" placeholder="Ejemplo: carlos@gmail.com">
                 </div>
             </div>
+            
             <div class="field">
-                <label class="label" for="hora">Hora:</label>
+                <label class="label" for="celular">Celular:</label>
                 <div class="control input-container">
-                    <input class="input" type="text" id="hora" placeholder="Formato: hh:mm:ss">
+                    <input class="input" type="text" id="celular" placeholder="Ejemplo: 00000000">
                 </div>
             </div>
+            
             <div class="field">
-                <label class="label" for="tiempo_estimado">Tiempo de recorrido:</label>
+                <label class="label" for="ciudad">Ciudad:</label>
                 <div class="control input-container">
-                    <input class="input" type="text" id="tiempo_estimado" placeholder="Formato: hh:mm:ss">
+                    <input class="input" type="text" id="ciudad" placeholder="Ejemplo: Cochabamba">
                 </div>
             </div>
+            
             <div class="field">
-                <label class="label" for="precio">Tarifa:</label>
+                <label class="label" for="password">Contraseña:</label>
                 <div class="control input-container">
-                    <input class="input" type="text" id="precio" placeholder="Ejemplo: 30 ">
+                    <input class="input" type="text" id="password" placeholder="">
                 </div>
             </div>
+
             <div class="block">
                 <button class="button is-primary is-fullwidth submit-button is-rounded" onclick="submitForm()">Enviar</button>
             </div>
         </div>
     </div>
+
     <script>
         function submitForm() {
-
             function getValues() {
                 return {
-                    id_origen: document.getElementById('id_origen').value,
-                    id_destino: document.getElementById('id_destino').value,
-                    fecha: document.getElementById('fecha').value,
-                    hora: document.getElementById('hora').value,
-                    tiempo_estimado: document.getElementById('tiempo_estimado').value,
-                    precio: document.getElementById('precio').value,
+                    nombre: document.getElementById('nombre').value,
+                    apellido: document.getElementById('apellido').value,
+                    correo_electronico: document.getElementById('correo_electronico').value,
+                    celular: document.getElementById('celular').value,
+                    ciudad: document.getElementById('ciudad').value,
+                    password: document.getElementById('password').value,
                 }
             }
-            
 
-            const url = 'http://localhost:3000/trayecto';
+            console.log(getValues());
+            const url = 'http://localhost:3000/usuario';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             };
             const body = JSON.stringify(getValues());
-            const medatata = { method, headers, body };
-            fetch(url, medatata)
-            .then(response => response.json())
-            .then(response => console.log(JSON.stringify(response)))
+            const metadata = { method, headers, body };
+            fetch(url, metadata)
+                .then(response => response.json())
+                .then(response => console.log(JSON.stringify(response)))
         }
     </script>
 </body>
 </html>
+
+
